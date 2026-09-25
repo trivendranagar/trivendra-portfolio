@@ -49,4 +49,61 @@
       card.addEventListener('pointerleave', () => card.style.transform = '');
     });
   }
+  const greetingIntro = document.getElementById('greetingIntro');
+  const greetingText = document.getElementById('greetingText');
+
+  if (greetingIntro && greetingText) {
+
+    document.body.classList.add('intro-active');
+
+    const greetings = [
+      'Hello',
+      'Привет',
+      'Hola',
+      'Bonjour',
+      'こんにちは',
+      'नमस्ते',
+      'चरण स्पर्श'
+    ];
+
+    let greetingIndex = 0;
+
+    const showGreeting = () => {
+      greetingText.classList.remove('show');
+
+      setTimeout(() => {
+        greetingText.textContent = greetings[greetingIndex];
+        greetingText.classList.add('show');
+      }, 220);
+    };
+
+    showGreeting();
+
+    const greetingTimer = setInterval(() => {
+
+      greetingIndex++;
+
+      if (greetingIndex >= greetings.length) {
+
+        clearInterval(greetingTimer);
+
+        setTimeout(() => {
+
+          greetingText.classList.remove('show');
+
+          setTimeout(() => {
+            greetingIntro.classList.add('hide');
+            document.body.classList.remove('intro-active');
+          }, 400);
+
+        }, 650);
+
+        return;
+      }
+
+      showGreeting();
+
+    }, 1100);
+  }
+
 })();
