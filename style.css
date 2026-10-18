@@ -989,3 +989,243 @@ body.intro-active {
     font-size: 14vw;
   }
 }
+
+
+/* =========================================
+   PREMIUM BUTTON & LINK HOVER EFFECTS
+   Matching the existing portfolio theme
+========================================= */
+
+/* Smooth transitions for interactive elements */
+.button,
+.dock a,
+.project a,
+.credential-grid a,
+.recognition-grid a,
+.social-row a,
+.to-top,
+.scroll-cue span,
+.mini-tags span {
+  transition:
+    background-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+/* 1. Main buttons: Explore my work, Say hello,
+   Copy email, Download CV, Send message */
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(18, 18, 18, 0.12);
+}
+
+/* Primary orange buttons */
+.button.primary:hover {
+  background: #d97706;
+  border-color: #d97706;
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(239, 138, 22, 0.32);
+}
+
+/* Outline / ghost buttons */
+.button.ghost:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+/* Dark buttons */
+.button.dark:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(239, 138, 22, 0.22);
+}
+
+/* Click feedback */
+.button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: none;
+}
+
+
+/* 2. Floating navigation dock */
+.dock a:not(.dock-contact):hover {
+  background: #fff;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+/* Preserve orange contact button */
+.dock .dock-contact:hover {
+  background: #d97706 !important;
+  color: #fff !important;
+  box-shadow: 0 5px 18px rgba(239, 138, 22, 0.3);
+}
+
+
+/* 3. Project links */
+.project a {
+  display: inline-block;
+  position: relative;
+}
+
+.project a:hover {
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* Animated underline */
+.project a::after,
+.social-row a::after,
+.recognition-grid a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.project a:hover::after,
+.social-row a:hover::after,
+.recognition-grid a:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* 4. Social links */
+.social-row a {
+  position: relative;
+}
+
+.social-row a:hover {
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+
+/* 5. Certificate links */
+.credential-grid a {
+  display: inline-block;
+}
+
+.credential-grid a:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(18, 18, 18, 0.1);
+}
+
+
+/* 6. Achievement links */
+.recognition-grid a {
+  display: inline-block;
+  width: fit-content;
+  position: relative;
+}
+
+.recognition-grid a:hover {
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+
+/* 7. Skill tags */
+.mini-tags span {
+  cursor: default;
+}
+
+.mini-tags span:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(18, 18, 18, 0.08);
+}
+
+
+/* 8. Scroll indicator */
+.scroll-cue:hover span {
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(4px);
+}
+
+
+/* 9. Back to Top button */
+.to-top {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s var(--ease),
+    box-shadow 0.3s ease;
+}
+
+.to-top:hover {
+  background: var(--orange);
+  color: var(--ink);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(239, 138, 22, 0.25);
+}
+
+.to-top:active {
+  transform: translateY(-1px);
+}
+
+
+/* 10. Keyboard accessibility */
+.button:focus-visible,
+.dock a:focus-visible,
+.project a:focus-visible,
+.credential-grid a:focus-visible,
+.recognition-grid a:focus-visible,
+.social-row a:focus-visible,
+.to-top:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+
+
+/* 11. Touch devices and reduced motion */
+@media (hover: none) {
+  .button:hover,
+  .project a:hover,
+  .credential-grid a:hover,
+  .recognition-grid a:hover,
+  .social-row a:hover,
+  .to-top:hover,
+  .mini-tags span:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .dock a,
+  .project a,
+  .credential-grid a,
+  .recognition-grid a,
+  .social-row a,
+  .to-top,
+  .scroll-cue span,
+  .mini-tags span,
+  .project a::after,
+  .social-row a::after,
+  .recognition-grid a::after {
+    transition: none !important;
+  }
+}
+
