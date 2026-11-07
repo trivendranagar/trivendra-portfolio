@@ -1229,3 +1229,15 @@ body.intro-active {
   }
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+}
