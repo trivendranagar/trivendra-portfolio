@@ -1229,18 +1229,3 @@ body.intro-active {
   }
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.06em;
-}
-
-.brand-logo {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  display: block;
-}
